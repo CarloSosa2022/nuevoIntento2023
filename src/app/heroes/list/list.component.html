@@ -1,0 +1,36 @@
+<h3>Listado de Personajes</h3>
+
+<ul>
+  <li class="list-group-items">Mario</li>
+  <li class="list-group-items">Luigi</li>
+  <li class="list-group-items">Wario</li>
+  <li class="list-group-items">Peach</li>
+  <li class="list-group-items">Yoshi</li>
+</ul>
+
+<!-- <div *ngIf="deletedHero" class="">
+  <h3>Herore borrado <small class="text-danger">{{deletedHero}}</small> </h3>
+</div>
+
+<h3 *ngIf="!deletedHero">No ha borrado nada</h3> -->
+
+<!-- Es ng-template es un div que no existe No se va a construir a menos menosq ue le demos una instrucción-->
+<div *ngIf="deletedHero; else nothingWasDeleted">
+  <h3>Herore borrado <small class="text-danger">{{deletedHero}}</small> </h3>
+</div>
+
+<!-- referencia local -->
+<ng-template #nothingWasDeleted>
+  <h3>No ha borrado nada</h3>
+</ng-template>
+
+
+<button *ngIf="heroNames.length>0" (click)="removeLastHero()" class="btn btn-outline-danger">Borrar Último Héroe</button>
+
+
+
+<ul>
+  <li *ngFor="let names of heroNames" class="list-group-items">{{names}}</li>
+</ul>
+
+
